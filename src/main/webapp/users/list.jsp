@@ -13,7 +13,7 @@
     </div>
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">User list</h6>
+        <h6 class="m-0 font-weight-bold text-primary">USER LIST</h6>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -29,6 +29,11 @@
                 <td>${user.id}</td>
                 <td>${user.username}</td>
                 <td>${user.email}</td>
+                <td>
+                  <a href='<c:url value="/user/show?id=${user.id}"/>'>SHOW</a>
+                  <a href='<c:url value="/user/edit?id=${user.id}"/>'>EDIT</a>
+                  <a href='<c:url value="/user/delete?id=${user.id}"/>'>DELETE</a>
+                </td>
               </tr>
             </c:forEach>
           </table>
