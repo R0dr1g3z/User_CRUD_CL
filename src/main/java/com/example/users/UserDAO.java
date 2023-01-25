@@ -59,11 +59,12 @@ public class UserDAO {
         }
     }
 
-    public void delete(int userId) throws SQLException {
+    public void delete(int userId) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER_QUERY);
             preparedStatement.setInt(1, userId);
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
         }
     }
 
