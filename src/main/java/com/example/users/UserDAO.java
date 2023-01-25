@@ -30,7 +30,7 @@ public class UserDAO {
         }
     }
 
-    public User read(int userId) throws SQLException {
+    public User read(int userId) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(READ_USER_QUERY);
             preparedStatement.setInt(1, userId);
@@ -42,11 +42,12 @@ public class UserDAO {
                 User user = new User(email, username, password);
                 return user;
             }
-            return null;
+        } catch (SQLException e) {
         }
+        return null;
     }
 
-    public void update(User user, int userId) throws SQLException {
+    public void update(User user, int userId) {
         try (Connection connection = DbUtil.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER_QUERY);
             preparedStatement.setString(1, user.getEmail());
@@ -54,6 +55,7 @@ public class UserDAO {
             preparedStatement.setString(3, hashPassword(user.getPassword()));
             preparedStatement.setInt(4, userId);
             preparedStatement.executeUpdate();
+        } catch (SQLException e) {
         }
     }
 
