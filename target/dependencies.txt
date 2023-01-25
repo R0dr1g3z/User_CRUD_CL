@@ -1,0 +1,7 @@
+digraph "com.example:jee-user-crud:war:1.0" { 
+	"com.example:jee-user-crud:war:1.0" -> "javax.servlet:servlet-api:jar:2.5:provided" ; 
+	"com.example:jee-user-crud:war:1.0" -> "javax.servlet.jsp:jsp-api:jar:2.1:provided" ; 
+	"com.example:jee-user-crud:war:1.0" -> "org.mindrot:jbcrypt:jar:0.4:compile" ; 
+	"com.example:jee-user-crud:war:1.0" -> "mysql:mysql-connector-java:jar:8.0.30:compile" ; 
+	"mysql:mysql-connector-java:jar:8.0.30:compile" -> "com.google.protobuf:protobuf-java:jar:3.19.4:compile" ; 
+ } 
